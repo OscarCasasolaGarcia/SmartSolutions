@@ -1251,7 +1251,7 @@ def main():
                         except:
                             st.warning("Por favor, selecciona parámetros válidos para el árbol de decisión")
 
-                        Elementos = export_graphviz(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR]))  
+                        Elementos = export_graphviz(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR])) 
                         Arbol = graphviz.Source(Elementos)
                         #Arbol.format = 'svg'
                         #Arbol.render('ArbolDecisionR') 
