@@ -10,4 +10,3 @@ scikit-learn==1.0.1
 scikit-image==0.18.3
 kneed==0.7.0
 graphviz==0.18.2
-sklearn-tree==0.5.1

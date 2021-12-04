@@ -1227,16 +1227,7 @@ def main():
                                 Reporte = export_text(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR]))
                                 st.text(Reporte)
 
-                            Elementos = export_graphviz(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR]))  
-                            Arbol = graphviz.Source(Elementos)
-                            #Arbol.format = 'svg'
-                            #Arbol.render('ArbolDecisionR') 
-                            st.download_button(
-                                label="Haz click aquí para descargar el árbol de decisión generado (extensión SVG)",
-                                data=Arbol.pipe(format='svg'),
-                                file_name="ArbolDecisionR.svg",
-                                mime="image/svg"
-                            )
+                            ##############################
 
                             st.markdown("### **El árbol generado se puede leer en el siguiente orden:** ")
                             st.markdown("""
@@ -1259,6 +1250,17 @@ def main():
                                     st.info("Con un algoritmo que tiene una exactitud promedio del: "+str(r2_score(Y_test, Y_Pronostico).round(6)*100)+"%, el pronóstico de la variable '"+str(variablePronostico)+"' fue de "+str(resultado)+" para el paciente: "+str(sujetoN)+".")
                         except:
                             st.warning("Por favor, selecciona parámetros válidos para el árbol de decisión")
+
+                        Elementos = export_graphviz(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR]))  
+                        Arbol = graphviz.Source(Elementos)
+                        #Arbol.format = 'svg'
+                        #Arbol.render('ArbolDecisionR') 
+                        st.download_button(
+                            label="Haz click aquí para descargar el árbol de decisión generado (extensión SVG)",
+                            data=Arbol.pipe(format='svg'),
+                            file_name="ArbolDecisionR.svg",
+                            mime="image/svg"
+                        )
 
                     elif X.size == 0:
                         st.warning("No se ha seleccionado ninguna variable")
