@@ -1229,15 +1229,14 @@ def main():
 
                             Elementos = export_graphviz(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR]))  
                             Arbol = graphviz.Source(Elementos)
-                            Arbol.format = 'svg'
-                            Arbol.render('ArbolDecisionR')
-                            with open("ArbolDecisionR.svg", "rb") as file:
-                                btn = st.download_button(
+                            #Arbol.format = 'svg'
+                            #Arbol.render('ArbolDecisionR') 
+                            st.download_button(
                                 label="Haz click aquí para descargar el árbol de decisión generado (extensión SVG)",
-                                data=file,
+                                data=Arbol.pipe(format='svg'),
                                 file_name="ArbolDecisionR.svg",
                                 mime="image/svg"
-                                )
+                            )
 
                             st.markdown("### **El árbol generado se puede leer en el siguiente orden:** ")
                             st.markdown("""
@@ -1463,15 +1462,15 @@ def main():
 
                                     Elementos = export_graphviz(ClasificacionAD, feature_names = list(datosArbolesDecision[datos]), class_names=Y_Clasificacion)
                                     Arbol = graphviz.Source(Elementos)
-                                    Arbol.format = 'svg'
-                                    Arbol.render('ArbolDecisionC')
-                                    with open("ArbolDecisionC.svg", "rb") as f:
-                                        btn = st.download_button(
+                                    #Arbol.format = 'svg'
+                                    #Arbol = Arbol.render('ArbolDecisionC')
+                                    st.download_button(
                                         label="Haz click para descargar el árbol de decisión generado (extensión SVG)",
-                                        data=f,
+                                        data=Arbol.pipe(format='svg'),
                                         file_name="ArbolDecisionC.svg",
                                         mime="image/svg"
                                         )
+                                    
 
                                     st.markdown("### **El árbol generado se puede leer en el siguiente orden:** ")
                                     st.markdown("""
