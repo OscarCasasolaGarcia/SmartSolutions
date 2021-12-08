@@ -1,23 +1,25 @@
+
 def main():
     import streamlit as st
 
     st.sidebar.header("Selecciona el módulo que quieras implementar:")
-    menu = ["Pantalla Principal", "Reglas de Asociación", "Métricas de distancia", "Clustering", "Clasificación (Regresión Logística)", "Árboles de decisión"]
+    menu = ["Pantalla Principal", "Reglas de Asociación 💲", "Métricas de distancia 📏", "Clustering 🔴🔵🟢🟣", "Clasificación (Regresión Logística) 📈", "Árboles de decisión 🌳"]
     option = st.sidebar.selectbox("Módulo", menu)
 
     if option == "Pantalla Principal":
-        st.title("SmartsSolutions")
+        st.title("SmartsSolutions 💻")
         st.markdown("""
         ### *El aprendizaje automático como una herramienta en la era digital.*
         """)
         st.image("https://www.muycomputerpro.com/wp-content/uploads/2021/03/inversion-inteligencia-artificial-europa-2021.jpg",width=600)
         st.markdown("""
-        * Bienvenido a SmartsSolutions, una aplicación desarrollada por *Oscar Casasola*, la cual es una herramienta de apoyo para la implementación de algoritmos de aprendizaje automático.
-        * Por favor, selecciona un módulo del menú que se encuentra en el barra lateral izquierda para comenzar...
+        Bienvenido a SmartsSolutions, una aplicación desarrollada por *Oscar Casasola*, la cual es una herramienta de apoyo para la implementación de algoritmos de aprendizaje automático.
+        
+        Por favor, selecciona un módulo del menú que se encuentra en el barra lateral izquierda para comenzar...
         """)
         st.markdown("*Solución realizada por: Oscar Casasola.*")
 
-    if option == "Reglas de Asociación":
+    if option == "Reglas de Asociación 💲":
         from numpy.lib.shape_base import split
         import streamlit as st
         import pandas as pd                 # Para la manipulación y análisis de los datos
@@ -29,8 +31,9 @@ def main():
 
         st.title("Módulo: Reglas de asociación")
         st.markdown("""
-        * Las **reglas de asociación** es un algoritmo de aprendizaje automático basado en reglas, que se utiliza para encontrar relaciones ocultas en los datos.
-        * Se originó con el estudio de transacciones de clientes para determinar asociaciones entre los artículos comprados. También se conoce como **análisis de afinidad**.""")
+        📌 Las **reglas de asociación** es un algoritmo de aprendizaje automático basado en reglas, que se utiliza para encontrar relaciones ocultas en los datos.
+        
+        📌 Se originó con el estudio de transacciones de clientes para determinar asociaciones entre los artículos comprados. También se conoce como **análisis de afinidad**.""")
 
         datosAsociacion = st.file_uploader("Selecciona un archivo válido para trabajar las reglas de asociación", type=["csv", "txt"])
         
@@ -64,8 +67,8 @@ def main():
                 st.subheader("Elementos de los menos populares a los más populares:")
                 st.dataframe(ListaM)
 
+                st.subheader("De manera gráfica: ")
                 with st.spinner("Generando gráfica..."):
-                    st.subheader("De manera gráfica: ")
                     # Se muestra el gráfico de las películas más populares a las menos populares
                     grafica = plt.figure(figsize=(20,30))
                     plt.xlabel('Frecuencia')
@@ -81,9 +84,11 @@ def main():
 
                 st.subheader("Ingresa los valores deseados para esta configuración del algoritmo: ")
                 st.markdown("""
-                * **Soporte (Cobertura)**. Indica cuán importante es una regla dentro del total de transacciones.
-                * **Confianza**. Indica que tan fiable es una regla.
-                * **Lift (Elevación, Interés)**. Indica el nivel de relación (aumento de probabilidad) entre el antecedente y consecuente de la regla. Lift < 1 (Relación negativa), Lift = 1 (Independientes), Lift > 1 (Relación positiva)
+                💭 **Soporte (Cobertura)**. Indica cuán importante es una regla dentro del total de transacciones.
+                
+                💭 **Confianza**. Indica que tan fiable es una regla.
+                
+                💭 **Lift (Elevación, Interés)**. Indica el nivel de relación (aumento de probabilidad) entre el antecedente y consecuente de la regla. Lift < 1 (Relación negativa), Lift = 1 (Independientes), Lift > 1 (Relación positiva)
                 """)
                 colu1, colu2, colu3 = st.columns(3)
                 min_support =  colu1.number_input("Mínimo de soporte", min_value=0.0, value=0.01, step=0.01)
@@ -135,7 +140,7 @@ def main():
                             conclusions = st.text_area("En este espacio, se pueden anotar las conclusiones a las que se llegaron a partir de los resultados obtenidos en las reglas de asociación:", "")
                             st.subheader(conclusions)
 
-    if option == "Métricas de distancia":
+    if option == "Métricas de distancia 📏":
         import streamlit as st
         import pandas as pd                         # Para la manipulación y análisis de datosMetricas
         import numpy as np                          # Para crear vectores y matrices n dimensionales
@@ -149,8 +154,9 @@ def main():
 
         st.title("Módulo: Metricas de distancia")
         st.markdown("""
-        * Una medida de distancia es una puntuación objetiva que resume la diferencia entre dos elementos (objetos), como: compras, ventas, diagnósticos, personas, usuarios, entre otros.
-        * Estas mediciones se utilizan para "aprender de los datos".
+        📌 Una medida de distancia es una puntuación objetiva que resume la diferencia entre dos elementos (objetos), como: compras, ventas, diagnósticos, personas, usuarios, entre otros.
+        
+        📌 Estas mediciones se utilizan para "aprender de los datos".
 
         """)
         datosMetricas = st.file_uploader("Selecciona un archivo válido para trabajar con las Métricas de Distancia:", type=["csv","txt"])
@@ -164,24 +170,27 @@ def main():
             if opcionVisualizacionMetricas == "Euclidiana":
                 st.subheader("Distancia Euclidiana")
                 st.markdown("""
-                * La **Distancia Euclidiana (euclídea, por Euclides)** es una de las métricas más utilizadas para calcular la distancia entre dos puntos. También es conocida como 'espacio euclidiano'.
-                * Sus bases se encuentran en la aplicación del Teorema de Pitágoras, donde la distancia viene a ser la longitud de la hipotenusa. 
+                💭 La **Distancia Euclidiana (euclídea, por Euclides)** es una de las métricas más utilizadas para calcular la distancia entre dos puntos. También es conocida como 'espacio euclidiano'.
+                
+                💭 Sus bases se encuentran en la aplicación del Teorema de Pitágoras, donde la distancia viene a ser la longitud de la hipotenusa. 
+                
                 """)
+
                 DstEuclidiana = cdist(datosMetricasMetricas, datosMetricasMetricas, metric='euclidean') # Calcula TODA la matriz de distancias 
                 matrizEuclidiana = pd.DataFrame(DstEuclidiana)
                 if st.checkbox('Matriz de distancias Euclidiana de todos los objetos'):
+                    st.dataframe(matrizEuclidiana)
+                    st.subheader("Observando gráficamente la matriz de distancias Euclidiana: ")
                     with st.spinner('Cargando matriz de distancias Euclidiana...'):
-                        st.dataframe(matrizEuclidiana)
-                        st.subheader("Observando gráficamente la matriz de distancias Euclidiana: ")
                         plt.figure(figsize=(10,10))
                         plt.imshow(matrizEuclidiana, cmap='icefire_r')
                         plt.colorbar()
                         st.pyplot()
                 
                 if st.checkbox('Distancia Euclidiana entre dos objetos'):
+                    st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Euclidiana entre dos objetos...'):
                         #Calculando la distancia entre dos objetos 
-                        st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                         columna1, columna2 = st.columns([1,3])
                         with columna1:
                             objeto1 = st.selectbox('Objeto 1: ', options=matrizEuclidiana.columns)
@@ -199,10 +208,10 @@ def main():
                             st.pyplot()
 
                 if st.checkbox('Distancia Euclidiana entre dos objetos de tu elección'):
+                    st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Euclidiana entre dos objetos de tu elección...'):
                         try:
-                            #Calculando la distancia entre dos objetos 
-                            st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
+                            #Calculando la distancia entre dos objetos
                             columna1, columna2,columna3 = st.columns([1,1,1])
                             with columna1:
                                 dimension = st.number_input('Selecciona el número de dimensiones que requieras: ', min_value=1, value=1)
@@ -229,24 +238,25 @@ def main():
             if opcionVisualizacionMetricas == "Chebyshev":
                 st.subheader("Distancia de Chebyshev")
                 st.markdown("""
-                * La distancia de Chebyshev es el valor máximo absoluto de las diferencias entre las coordenadas de un par de elementos. También es conocida como *"métrica máxima"*.
-                * Lleva el nombre del matemático ruso Pafnuty Chebyshev, conocido por su trabajo en la geometría analítica y teoría de números.
+                💭 La distancia de Chebyshev es el valor máximo absoluto de las diferencias entre las coordenadas de un par de elementos. También es conocida como *"métrica máxima"*.
+                
+                💭 Lleva el nombre del matemático ruso Pafnuty Chebyshev, conocido por su trabajo en la geometría analítica y teoría de números.
                 """)
                 DstChebyshev = cdist(datosMetricasMetricas, datosMetricasMetricas, metric='chebyshev') # Calcula TODA la matriz de distancias
                 matrizChebyshev = pd.DataFrame(DstChebyshev)
                 if st.checkbox('Matriz de distancias Chebyshev de todos los objetos'):
+                    st.dataframe(matrizChebyshev)
+                    st.subheader("Observando gráficamente la matriz de distancias Chebyshev: ")
                     with st.spinner('Cargando matriz de distancias Chebyshev...'):
-                        st.dataframe(matrizChebyshev)
-                        st.subheader("Observando gráficamente la matriz de distancias Chebyshev: ")
                         plt.figure(figsize=(10,10))
                         plt.imshow(matrizChebyshev, cmap='icefire_r')
                         plt.colorbar()
                         st.pyplot()
 
                 if st.checkbox('Distancia Chebyshev entre dos objetos'):
+                    st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Chebyshev entre dos objetos...'):
                         #Calculando la distancia entre dos objetos 
-                        st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                         columna1, columna2 = st.columns([1,3])
                         with columna1:
                             objeto1 = st.selectbox('Objeto 1: ', options=matrizChebyshev.columns)
@@ -264,10 +274,10 @@ def main():
                             st.pyplot()
 
                 if st.checkbox('Distancia Chebyshev entre dos objetos de tu elección'):
+                    st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Chebyshev entre dos objetos de tu elección...'):
                         try:
                             #Calculando la distancia entre dos objetos 
-                            st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
                             columna1, columna2,columna3 = st.columns([1,1,1])
                             with columna1:
                                 dimension = st.number_input('Selecciona el número de dimensiones que requieras: ', min_value=1, value=1)
@@ -295,24 +305,25 @@ def main():
             if opcionVisualizacionMetricas == "Manhattan":
                 st.subheader("Distancia de Manhattan")
                 st.markdown("""
-                * La distancia de Manhattan se utiliza si se necesita calcular la distancia entre dos puntos en una ruta similar a una cuadrícula (información geoespacial).
-                * Se llama *Manhattan* debido al diseño de cuadrícula de la mayoría de las calles de la isla de Manhattan, Nueva York (USA).
+                💭 La distancia de Manhattan se utiliza si se necesita calcular la distancia entre dos puntos en una ruta similar a una cuadrícula (información geoespacial).
+                
+                💭 Se llama *Manhattan* debido al diseño de cuadrícula de la mayoría de las calles de la isla de Manhattan, Nueva York (USA).
                 """)
                 DstManhattan = cdist(datosMetricasMetricas, datosMetricasMetricas, metric='cityblock') # Calcula TODA la matriz de distancias
                 matrizManhattan = pd.DataFrame(DstManhattan)
                 if st.checkbox('Matriz de distancias Manhattan de todos los objetos'):
+                    st.dataframe(matrizManhattan)
+                    st.subheader("Observando gráficamente la matriz de distancias Manhattan: ")
                     with st.spinner('Cargando matriz de distancias Manhattan...'):
-                        st.dataframe(matrizManhattan)
-                        st.subheader("Observando gráficamente la matriz de distancias Manhattan: ")
                         plt.figure(figsize=(10,10))
                         plt.imshow(matrizManhattan, cmap='icefire_r')
                         plt.colorbar()
                         st.pyplot()
 
                 if st.checkbox('Distancia Manhattan entre dos objetos'):
+                    st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Manhattan entre dos objetos...'):
                         #Calculando la distancia entre dos objetos 
-                        st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                         columna1, columna2 = st.columns([1,3])
                         with columna1:
                             objeto1 = st.selectbox('Objeto 1: ', options=matrizManhattan.columns)
@@ -330,10 +341,10 @@ def main():
                             st.pyplot()
 
                 if st.checkbox('Distancia Manhattan entre dos objetos de tu elección'):
+                    st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Manhattan entre dos objetos de tu elección...'):
                         try:
                             #Calculando la distancia entre dos objetos 
-                            st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
                             columna1, columna2,columna3 = st.columns([1,1,1])
                             with columna1:
                                 dimension = st.number_input('Selecciona el número de dimensiones que requieras: ', min_value=1, value=1)
@@ -361,24 +372,25 @@ def main():
             if opcionVisualizacionMetricas == "Minkowski":
                 st.subheader("Distancia de Minkowski")
                 st.markdown("""
-                * La distancia de Minkowski es una distancia entre dos puntos en un espacio n-dimensional. 
-                * Es una métrica de distancia generalizada: Euclidiana, Manhattan y Chebyshev.
+                💭 La distancia de Minkowski es una distancia entre dos puntos en un espacio n-dimensional. 
+                
+                💭 Es una métrica de distancia generalizada: Euclidiana, Manhattan y Chebyshev.
                 """)
                 DstMinkowski = cdist(datosMetricasMetricas, datosMetricasMetricas, metric='minkowski',p=1.5) # Calcula TODA la matriz de distancias
                 matrizMinkowski = pd.DataFrame(DstMinkowski)
                 if st.checkbox('Matriz de distancias Minkowski de todos los objetos'):
+                    st.dataframe(matrizMinkowski)
+                    st.subheader("Observando gráficamente la matriz de distancias Minkowski: ")
                     with st.spinner('Cargando matriz de distancias Minkowski...'):
-                        st.dataframe(matrizMinkowski)
-                        st.subheader("Observando gráficamente la matriz de distancias Minkowski: ")
                         plt.figure(figsize=(10,10))
                         plt.imshow(matrizMinkowski, cmap='icefire_r')
                         plt.colorbar()
                         st.pyplot()
 
                 if st.checkbox('Distancia Minkowski entre dos objetos'):
+                    st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Minkowski entre dos objetos...'):
                         #Calculando la distancia entre dos objetos 
-                        st.subheader("Selecciona dos objetos para calcular la distancia entre ellos: ")
                         columna1, columna2 = st.columns([1,3])
                         with columna1:
                             objeto1 = st.selectbox('Objeto 1: ', options=matrizMinkowski.columns)
@@ -396,10 +408,10 @@ def main():
                             st.pyplot()
 
                 if st.checkbox('Distancia Minkowski entre dos objetos de tu elección'):
+                    st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
                     with st.spinner('Cargando distancia Minkowski entre dos objetos de tu elección...'):
                         try:
                             #Calculando la distancia entre dos objetos 
-                            st.subheader("Inserta las características de los objetos para calcular la distancia entre ellos: ")
                             columna1, columna2,columna3 = st.columns([1,1,1])
                             with columna1:
                                 dimension = st.number_input('Selecciona el número de dimensiones que requieras: ', min_value=1, value=1)
@@ -424,7 +436,7 @@ def main():
                         except:
                             st.warning("No se han podido calcular las distancias, intenta con otros valores...")
 
-    if option == "Clustering":
+    if option == "Clustering 🔴🔵🟢🟣":
         from matplotlib import text
         import pandas as pd               # Para la manipulación y análisis de datos
         import numpy as np                # Para crear vectores y matrices n dimensionales
@@ -448,11 +460,11 @@ def main():
 
         st.title('Módulo: Clustering')
         st.markdown("""
-        La IA aplicada en el análisis clústeres consiste en la **segmentación y delimitación de grupos de objetos (elementos), que son unidos por características comunes que éstos comparten** (aprendizaje no supervisado).
+        📌 La IA aplicada en el análisis clústeres consiste en la **segmentación y delimitación de grupos de objetos (elementos), que son unidos por características comunes que éstos comparten** (aprendizaje no supervisado).
 
-        El objetivo es dividir una población heterogénea de elementos en un número de grupos naturales (regiones o segmentos homogéneos), de acuerdo con sus similitudes.
+        📌 El objetivo es dividir una población heterogénea de elementos en un número de grupos naturales (regiones o segmentos homogéneos), de acuerdo con sus similitudes.
         
-        Para hacer clustering es necesario saber el grado de similitud (medidas de distancia) entre los elementos.
+        📌 Para hacer clustering es necesario saber el grado de similitud (medidas de distancia) entre los elementos.
         
         """)
         datosCluster = st.file_uploader("Selecciona un archivo válido para trabajar con el módulo de clustering", type=["csv","txt"])
@@ -471,7 +483,7 @@ def main():
                 if opcionVisualizacionClustersJ == "Evaluación Visual":
                     st.header("Datos cargados: ")
                     st.dataframe(datosClustering)
-                    st.subheader("Selecciona la variable a pronosticar: ")
+                    st.subheader("Selecciona la variable para etiquetar en el gráfico de dispersión: ")
                     variablePronostico = st.selectbox("", datosClustering.columns,index=9)
                     st.write(datosClustering.groupby(variablePronostico).size())
                     try:
@@ -481,16 +493,17 @@ def main():
                         dato1=datos[0][:]
                         dato2=datos[1][:]
 
-                        with st.spinner("Cargando datos..."):
-                            if st.checkbox("Gráfico de dispersión"):
+                        
+                        if st.checkbox("Gráfico de dispersión"):
+                            with st.spinner("Cargando datos..."):
                                 sns.scatterplot(x=dato1, y=dato2, data=datosClustering, hue=variablePronostico)
                                 plt.title('Gráfico de dispersión')
                                 plt.xlabel(dato1)
                                 plt.ylabel(dato2)
                                 st.pyplot()
 
-                        with st.spinner("Cargando datos..."):
-                            if st.checkbox('Ver el gráfico de dispersión de todas las variables con el propósito de seleccionar variables significativas: (puede tardar un poco)'):
+                        if st.checkbox('Ver el gráfico de dispersión de todas las variables con el propósito de seleccionar variables significativas: (puede tardar un poco)'):
+                            with st.spinner("Cargando datos..."):
                                 sns.pairplot(datosClustering, hue=variablePronostico)
                                 st.pyplot()
                     except:
@@ -511,8 +524,8 @@ def main():
                         #st.warning("Selecciona una variable con datos válidos.")
 
                     # Mapa de calor de la relación que existe entre variables
+                    st.header("Observando de manera gráfica la matriz de correlaciones: ")
                     with st.spinner("Cargando mapa de calor..."):
-                        st.header("Observando de manera gráfica la matriz de correlaciones: ")
                         plt.figure(figsize=(14,7))
                         MatrizInf = np.triu(MatrizCorr)
                         sns.heatmap(MatrizCorr, cmap='RdBu_r', annot=True, mask=MatrizInf)
@@ -544,14 +557,15 @@ def main():
                         st.subheader("Selecciona la métrica de distancias a utilizar: ")
                         metricaElegida = st.selectbox("", ('euclidean','chebyshev','cityblock','minkowski'),index=0)
                         ClusterJerarquico = shc.linkage(MEstandarizada, method='complete', metric=metricaElegida)
+                        
+                        graficaClusteringJ = plt.figure(figsize=(10, 5))
+                        plt.title("Clustering Jerárquico (Ascendente)")
+                        plt.xlabel('Observaciones')
+                        plt.ylabel('Distancia')
+                        Arbol = shc.dendrogram(ClusterJerarquico) #Utilizamos la matriz estandarizada
+                        SelectAltura = st.slider('Selecciona a qué nivel quieres "cortar" el árbol: ', min_value=0.0, max_value=np.max(Arbol['dcoord']),step=0.1)
+                        plt.axhline(y=SelectAltura, color='black', linestyle='--') # Hace un corte en las ramas
                         with st.spinner("Cargando gráfico..."):
-                            graficaClusteringJ = plt.figure(figsize=(10, 5))
-                            plt.title("Clustering Jerárquico (Ascendente)")
-                            plt.xlabel('Observaciones')
-                            plt.ylabel('Distancia')
-                            Arbol = shc.dendrogram(ClusterJerarquico) #Utilizamos la matriz estandarizada
-                            SelectAltura = st.slider('Selecciona a qué nivel quieres "cortar" el árbol: ', min_value=0.0, max_value=np.max(Arbol['dcoord']),step=0.1,value=5.4)
-                            plt.axhline(y=SelectAltura, color='black', linestyle='--') # Hace un corte en las ramas
                             st.pyplot(graficaClusteringJ)
                         
                         numClusters = fcluster(ClusterJerarquico, t=SelectAltura, criterion='distance')
@@ -629,7 +643,7 @@ def main():
                 if opcionVisualizacionClustersP == "Evaluación Visual":
                     st.header("Datos cargados: ")
                     st.dataframe(datosClustering)
-                    st.markdown("**Selecciona la variable a pronosticar:** ")
+                    st.subheader("Selecciona la variable para etiquetar en el gráfico de dispersión: ")
                     variablePronostico = st.selectbox("", datosClustering.columns,index=9)
                     st.write(datosClustering.groupby(variablePronostico).size())
                     try:
@@ -639,18 +653,19 @@ def main():
                         dato1=datos[0][:]
                         dato2=datos[1][:]
 
-                        with st.spinner("Cargando datos..."):
-                            if st.checkbox("Gráfico de dispersión"):
+                        if st.checkbox("Gráfico de dispersión"):
+                            with st.spinner("Cargando datos..."):
                                 sns.scatterplot(x=dato1, y=dato2, data=datosClustering, hue=variablePronostico)
                                 plt.title('Gráfico de dispersión')
                                 plt.xlabel(dato1)
                                 plt.ylabel(dato2)
                                 st.pyplot()
 
-                        with st.spinner("Cargando datos..."):
-                            if st.checkbox('Ver el gráfico de dispersión de todas las variables con el propósito de seleccionar variables significativas: (puede tardar un poco)'):
+                        if st.checkbox('Ver el gráfico de dispersión de todas las variables con el propósito de seleccionar variables significativas: (puede tardar un poco)'):
+                            with st.spinner("Cargando datos..."):
                                 sns.pairplot(datosClustering, hue=variablePronostico)
                                 st.pyplot()
+
                     except:
                         st.warning("Selecciona solo dos variables...")
 
@@ -668,8 +683,8 @@ def main():
                         #st.warning("Selecciona una variable con datos válidos.")
 
                     # Mapa de calor de la relación que existe entre variables
+                    st.header("Observando de manera gráfica la matriz de correlaciones: ")
                     with st.spinner("Cargando mapa de calor..."):
-                        st.header("Observando de manera gráfica la matriz de correlaciones: ")
                         plt.figure(figsize=(14,7))
                         MatrizInf = np.triu(MatrizCorr)
                         sns.heatmap(MatrizCorr, cmap='RdBu_r', annot=True, mask=MatrizInf)
@@ -798,7 +813,7 @@ def main():
                     elif MatrizClusteringP.size == 0:
                         st.warning("No se ha seleccionado ninguna variable...")
 
-    if option == "Clasificación (Regresión Logística)":
+    if option == "Clasificación (Regresión Logística) 📈":
         from typing import BinaryIO
         import pandas as pd               # Para la manipulación y análisis de datos
         import numpy as np                # Para crear vectores y matrices n dimensionales
@@ -812,9 +827,11 @@ def main():
 
         st.title('Módulo: Regresión Logística')
         st.markdown("""
-        * La regresión logística es un de algoritmo de aprendizaje supervisado cuyo objetivo es predecir valores binarios (0 o 1). 
-        * Este algoritmo consiste en una transformación a la regresión lineal. 
-        * La transformación se debe a que una regresión lineal no funciona para predecir una variable binaria.
+        📌 La regresión logística es un de algoritmo de aprendizaje supervisado cuyo objetivo es predecir valores binarios (0 o 1). 
+        
+        📌 Este algoritmo consiste en una transformación a la regresión lineal. 
+        
+        📌La transformación se debe a que una regresión lineal no funciona para predecir una variable binaria.
         """)
 
         datosRegresionL = st.file_uploader("Selecciona un archivo válido para trabajar con la regresión logística: ", type=["csv","txt"])
@@ -945,6 +962,13 @@ def main():
                             from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
                             st.header('Criterio de división')
+                            st.markdown("""
+                            💭 El criterio de división consiste en dividir los datos en dos grupos:
+                            
+                            a) Datos de entrenamiento (*training*): 80%, 75% o 70% de los datos.
+                            
+                            b) Datos de prueba (*test*): 20%, 25% o 30% de los datos.
+                            """)
                             testSize = st.slider('Selecciona el tamaño del test', min_value=0.2, max_value=0.3, value=0.2, step=0.01)
                             X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=testSize, random_state=1234, shuffle=True)
                             # Datos de entrenamiento: 70, 75 u 80% de los datos
@@ -1042,7 +1066,7 @@ def main():
                     st.warning("La variable clase no contiene datos binarios, por lo que no se puede realizar la clasificación... intenta con otra variable")
 
 
-    if option == "Árboles de decisión":
+    if option == "Árboles de decisión 🌳":
         import pandas as pd               # Para la manipulación y análisis de datos
         import numpy as np                # Para crear vectores y matrices n dimensionales
         import matplotlib.pyplot as plt   # Para la generación de gráficas a partir de los datos
@@ -1057,10 +1081,13 @@ def main():
 
         st.title('Módulo: Árboles de decisión')
         st.markdown("""
-        * Es uno de los algoritmos más utilizados en el aprendizaje automático supervisado.
-        * Permiten resolver problemas de regresión (pronóstico) y clasificación.
-        * Aportan claridad (despliegan los resultados en profundidad, de mayor a menor detalle).
-        * Tienen buena precisión en un amplio número de aplicaciones.
+        📌 Es uno de los algoritmos más utilizados en el aprendizaje automático supervisado.
+    
+        📌 Permiten resolver problemas de regresión (pronóstico) y clasificación.
+        
+        📌 Aportan claridad (despliegan los resultados en profundidad, de mayor a menor detalle).
+        
+        📌 Tienen buena precisión en un amplio número de aplicaciones.
         """)
         datosArboles = st.file_uploader("Selecciona un archivo válido para trabajar con los árboles de decisión: ", type=["csv","txt"])
         if datosArboles is not None:
@@ -1142,6 +1169,13 @@ def main():
                             from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
 
                             st.header('Criterio de división')
+                            st.markdown("""
+                            💭 El criterio de división consiste en dividir los datos en dos grupos:
+                            
+                            a) Datos de entrenamiento (*training*): 80%, 75% o 70% de los datos.
+                            
+                            b) Datos de prueba (*test*): 20%, 25% o 30% de los datos.
+                            """)
                             testSize = st.slider('Selecciona el tamaño del test', min_value=0.2, max_value=0.3, value=0.2, step=0.01)
                             X_train, X_test, Y_train, Y_test = model_selection.train_test_split(X, Y, test_size=testSize, random_state=1234, shuffle=True)
                             # Datos de entrenamiento: 70, 75 u 80% de los datos
@@ -1155,10 +1189,14 @@ def main():
                             # EXPLICACIÓN 
                             st.header('Parámetros del árbol de decisión: ')
                             st.markdown("""
-                            * **max_depth**. Indica la máxima profundidad a la cual puede llegar el árbol. Esto ayuda a combatir el overfitting, pero también puede provocar underfitting.
-                            * **min_samples_leaf**. Indica la cantidad mínima de datos que debe tener un nodo hoja.
-                            * **min_samples_split**. Indica la cantidad mínima de datos para que un nodo de decisión se pueda dividir. Si la cantidad no es suficiente este nodo se convierte en un nodo hoja.
-                            * **criterion**. Indica la función que se utilizará para dividir los datos. Puede ser (ganancia de información) gini y entropy (Clasificación). Cuando el árbol es de regresión se usan funciones como el error cuadrado medio (MSE). """)
+                            💭 **max_depth**. Indica la máxima profundidad a la cual puede llegar el árbol. Esto ayuda a combatir el overfitting, pero también puede provocar underfitting.
+                            
+                            💭 **min_samples_leaf**. Indica la cantidad mínima de datos que debe tener un nodo hoja.
+                            
+                            💭 **min_samples_split**. Indica la cantidad mínima de datos para que un nodo de decisión se pueda dividir. Si la cantidad no es suficiente este nodo se convierte en un nodo hoja.
+                            
+                            💭 **criterion**. Indica la función que se utilizará para dividir los datos. Puede ser (ganancia de información) gini y entropy (Clasificación). Cuando el árbol es de regresión se usan funciones como el error cuadrado medio (MSE). 
+                            """)
 
                             st.write("Selecciona los valores que requieras para entrenar el modelo: ")
                             choiceProfuncidad = st.select_slider('Máxima profundidad del árbol (max_depth)', options=["None","Valores numéricos"], value="None")
@@ -1226,17 +1264,7 @@ def main():
                                 Reporte = export_text(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR]))
                                 st.text(Reporte)
 
-                            #Elementos = export_graphviz(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR])) 
-                            #Arbol = graphviz.Source(Elementos)
-                            #Arbol.format = 'svg'
-                            #Arbol.render('ArbolDecisionR') 
-                            #st.download_button(
-                            #    label="Haz click aquí para descargar el árbol de decisión generado (extensión SVG)",
-                            #   data=Arbol.pipe(format='svg'),
-                            #    file_name="ArbolDecisionR.svg",
-                            #    mime="image/svg"
-                            #)
-
+                            
                             st.markdown("### **El árbol generado se puede leer en el siguiente orden:** ")
                             st.markdown("""
                             1. La decisión que se toma para dividir el nodo.
@@ -1365,6 +1393,13 @@ def main():
                                 from sklearn import model_selection
                                 # Aplicación del algoritmo: Regresión Logística
                                 st.header('Criterio de división')
+                                st.markdown("""
+                                💭 El criterio de división consiste en dividir los datos en dos grupos:
+                                
+                                a) Datos de entrenamiento (*training*): 80%, 75% o 70% de los datos.
+                                
+                                b) Datos de prueba (*test*): 20%, 25% o 30% de los datos.
+                                """)
                                 testSize = st.slider('Selecciona el tamaño del test', min_value=0.2, max_value=0.3, value=0.2, step=0.01)
                                 X_train, X_validation, Y_train, Y_validation = model_selection.train_test_split(X, Y, test_size=testSize, random_state=0, shuffle=True)
                                 # Datos de entrenamiento: 70, 75 u 80% de los datos
@@ -1377,10 +1412,14 @@ def main():
                                 # EXPLICACIÓN 
                                 st.header('Parámetros del árbol de decisión: ')
                                 st.markdown("""
-                                * **max_depth**. Indica la máxima profundidad a la cual puede llegar el árbol. Esto ayuda a combatir el overfitting, pero también puede provocar underfitting.
-                                * **min_samples_leaf**. Indica la cantidad mínima de datos que debe tener un nodo hoja.
-                                * **min_samples_split**. Indica la cantidad mínima de datos para que un nodo de decisión se pueda dividir. Si la cantidad no es suficiente este nodo se convierte en un nodo hoja.
-                                * **criterion**. Indica la función que se utilizará para dividir los datos. Puede ser (ganancia de información) gini y entropy (Clasificación). Cuando el árbol es de regresión se usan funciones como el error cuadrado medio (MSE). """)
+                                💭 **max_depth**. Indica la máxima profundidad a la cual puede llegar el árbol. Esto ayuda a combatir el overfitting, pero también puede provocar underfitting.
+                                
+                                💭 **min_samples_leaf**. Indica la cantidad mínima de datos que debe tener un nodo hoja.
+                                
+                                💭 **min_samples_split**. Indica la cantidad mínima de datos para que un nodo de decisión se pueda dividir. Si la cantidad no es suficiente este nodo se convierte en un nodo hoja.
+                                
+                                💭 **criterion**. Indica la función que se utilizará para dividir los datos. Puede ser (ganancia de información) gini y entropy (Clasificación). Cuando el árbol es de regresión se usan funciones como el error cuadrado medio (MSE). 
+                                """)
 
                                 try: 
                                     st.write("Selecciona los valores que requieras para entrenar el modelo: ")
@@ -1460,23 +1499,11 @@ def main():
                                         Reporte = export_text(ClasificacionAD, feature_names = list(datosArbolesDecision[datos]))
                                         st.text(Reporte)
 
-                                    #Elementos = export_graphviz(ClasificacionAD, feature_names = list(datosArbolesDecision[datos]), class_names=Y_Clasificacion)
-                                    #Arbol = graphviz.Source(Elementos)
-                                    #Arbol.format = 'svg'
-                                    #Arbol = Arbol.render('ArbolDecisionC')
-                                    #st.download_button(
-                                    #    label="Haz click para descargar el árbol de decisión generado (extensión SVG)",
-                                    #    data=Arbol.pipe(format='svg'),
-                                    #    file_name="ArbolDecisionC.svg",
-                                    #    mime="image/svg"
-                                    #    )
-                                    
-
                                     st.markdown("### **El árbol generado se puede leer en el siguiente orden:** ")
                                     st.markdown("""
                                     1. La decisión que se toma para dividir el nodo.
                                     2. El tipo de criterio que se usó para dividir cada nodo.
-                                    3. Cuantos valores tiene ese nodo.
+                                    3. Cuántos valores tiene ese nodo.
                                     4. Valores promedio.
                                     5. Por último, el valor clasificado en ese nodo. """)
 
@@ -1512,7 +1539,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# Para ejeuctarlo en la terminal:
-# activate IA
-# streamlit run app.py
