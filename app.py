@@ -2,6 +2,13 @@
 def main():
     import streamlit as st
 
+    st.set_page_config(
+        page_title="SmartsSolutions",
+        page_icon="💻",
+        layout="wide",
+        initial_sidebar_state="expanded"
+    )
+
     st.sidebar.header("Selecciona el módulo que quieras implementar:")
     menu = ["Pantalla Principal", "Reglas de Asociación 💲", "Métricas de distancia 📏", "Clustering 🔴🔵🟢🟣", "Clasificación (Regresión Logística) 📈", "Árboles de decisión 🌳"]
     option = st.sidebar.selectbox("Módulo", menu)
@@ -789,7 +796,7 @@ def main():
                                 from mpl_toolkits.mplot3d import Axes3D
                                 plt.rcParams['figure.figsize'] = (10, 7)
                                 plt.style.use('ggplot')
-                                colores=['red', 'blue', 'green', 'yellow']
+                                colores=['red', 'blue', 'green', 'yellow','cyan']
                                 asignar=[]
                                 for row in MParticional.labels_:
                                     asignar.append(colores[row])
@@ -905,7 +912,7 @@ def main():
 
                 st.header('Definición de variables predictoras (X) y variable clase (Y)')
                 st.subheader('Selección de la variable Clase')
-                st.markdown('La variable clase debe ser de tipo **DISCRETO**')
+                st.markdown('La variable clase debe ser de tipo **BOOLEANO**')
                 variablePronostico = st.selectbox("Variable a clasificar", DatosRegresionL.columns)
 
                 # Comprobando que la variable clase sea binaria
@@ -1063,7 +1070,7 @@ def main():
                         st.warning("No se han seleccionado variables predictoras...")
 
                 elif DatosRegresionL[variablePronostico].nunique() != 2:
-                    st.warning("La variable clase no contiene datos binarios, por lo que no se puede realizar la clasificación... intenta con otra variable")
+                    st.warning("La variable clase no es de tipo booleano, por lo que no se puede realizar la clasificación... intenta con otra variable")
 
 
     if option == "Árboles de decisión 🌳":
@@ -1248,7 +1255,6 @@ def main():
 
 
                             import graphviz
-                            from sklearn.tree import export_graphviz
                             # Se crea un objeto para visualizar el árbol
                             # Se incluyen los nombres de las variables para imprimirlos en el árbol
                             st.subheader('Árbol de decisión')
@@ -1264,7 +1270,6 @@ def main():
                                 Reporte = export_text(PronosticoAD, feature_names = list(datosArbolesDecision[datosADeciR]))
                                 st.text(Reporte)
 
-                            
                             st.markdown("### **El árbol generado se puede leer en el siguiente orden:** ")
                             st.markdown("""
                             1. La decisión que se toma para dividir el nodo.
@@ -1351,7 +1356,7 @@ def main():
 
                     # SELECCIONAR VARIABLES A CLASIFICAR
                     st.subheader('Selección de la variable Clase')
-                    st.markdown('La variable clase debe contener valores **DISCRETOS**')
+                    st.markdown('La variable clase debe ser de tipo **BOOLEANO**')
                     variablePronostico = st.selectbox("Variable a clasificar", datosArbolesDecision.columns,index=1)
 
                     # Comprobando que la variable clase sea binaria
@@ -1440,7 +1445,7 @@ def main():
 
                                     #Se etiquetan las clasificaciones
                                     Y_Clasificacion = ClasificacionAD.predict(X_validation)
-                                    st.markdown('Se etiquetan las clasificaciones (Real vs Clasificado)')
+                                    st.subheader('Datos del Test vs Datos de la clasificación')
                                     Valores = pd.DataFrame(Y_validation, Y_Clasificacion)
                                     st.dataframe(Valores)
 
@@ -1482,7 +1487,6 @@ def main():
 
 
                                     import graphviz
-                                    from sklearn.tree import export_graphviz
                                     # Se crea un objeto para visualizar el árbol
                                     # Se incluyen los nombres de las variables para imprimirlos en el árbol
                                     st.subheader('Árbol de decisión (Clasificación)')
@@ -1535,7 +1539,11 @@ def main():
                             st.warning("No se ha seleccionado ninguna variable")
 
                     elif datosArbolesDecision[variablePronostico].nunique() != 2:
-                        st.warning("Por favor, selecciona una variable Clase (a clasificar) que contenga valores binarios...")
+                        st.warning("Por favor, selecciona una variable Clase (a clasificar) que sea de tipo Booleano...")
 
 if __name__ == "__main__":
     main()
+
+# Para ejecutarlo en la terminal:
+# activate IA
+# streamlit run app.py
